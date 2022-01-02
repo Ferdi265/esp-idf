@@ -167,7 +167,7 @@ extern "C" int __cxa_guard_acquire(__guard* pg)
     return ret;
 }
 
-extern "C" void __cxa_guard_release(__guard* pg)
+extern "C" void __cxa_guard_release(__guard* pg) throw()
 {
     guard_t* g = reinterpret_cast<guard_t*>(pg);
     const auto scheduler_started = xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED;
@@ -189,7 +189,7 @@ extern "C" void __cxa_guard_release(__guard* pg)
     }
 }
 
-extern "C" void __cxa_guard_abort(__guard* pg)
+extern "C" void __cxa_guard_abort(__guard* pg) throw()
 {
     guard_t* g = reinterpret_cast<guard_t*>(pg);
     const auto scheduler_started = xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED;
