@@ -67,7 +67,7 @@ function(__ldgen_process_template template output)
         --kconfig   "${root_kconfig}"
         --env-file  "${config_env_path}"
         --libraries-file "${build_dir}/ldgen_libraries"
-        --objdump   "${CMAKE_OBJDUMP}"
+        --objdump   "xtensa-esp32-elf-objdump"
         ${ldgen_check}
         DEPENDS     ${template} ${ldgen_fragment_files} ${ldgen_depends} ${SDKCONFIG}
         VERBATIM
